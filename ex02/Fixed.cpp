@@ -6,7 +6,7 @@
 /*   By: tterao <tterao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:46:25 by tterao            #+#    #+#             */
-/*   Updated: 2023/07/03 19:18:46 by tterao           ###   ########.fr       */
+/*   Updated: 2023/07/04 19:14:28 by tterao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ Fixed	Fixed::operator*(const Fixed& obj)
 	Fixed	tmp;
 
 	tmp.setRawBits(getRawBits());
-	tmp.fixedPointNum *= (obj.fixedPointNum >> binaryPoint);
+	// tmp.fixedPointNum *= (obj.fixedPointNum >> binaryPoint);
+	tmp.fixedPointNum *= obj.fixedPointNum;
+	tmp.fixedPointNum /= 1 << binaryPoint;
 	return (tmp);
 }
 
